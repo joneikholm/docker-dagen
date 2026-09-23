@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Øvelse 9: byg, start, hent, fjern — og kan køres to gange i træk.
+# Øvelse 10: byg, start, hent, fjern — og kan køres to gange i træk.
 set -e
 
 docker build -t minside .

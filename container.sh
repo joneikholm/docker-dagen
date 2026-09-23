@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-# Øvelse 1-5: livscyklussen for containere.
+# Øvelse 2-6: livscyklussen for containere.
 set -e
 
 docker run -d --name web nginx:alpine

@@ -6,10 +6,13 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Øvelse 1-5
+      # Øvelse 1
+      - run: docker run hello-world
+
+      # Øvelse 2-6
       - run: bash container.sh && bash container.sh
 
-      # Øvelse 6-8
+      # Øvelse 7-9
       - run: docker build -t minside .
       - run: docker run -d --name site -p 8080:8000 minside
       - run: sleep 2 && curl -f http://localhost:8080
@@ -18,13 +21,13 @@ jobs:
       - run: sleep 2 && curl -f http://localhost:9090
       - run: docker rm -f site2
 
-      # Øvelse 9
+      # Øvelse 10
       - run: bash image.sh && bash image.sh
 
-      # Øvelse 10-12
+      # Øvelse 11-13
       - run: bash volume.sh
 
-      # Øvelse 13-15
+      # Øvelse 14-16
       - run: docker compose up -d --build web
       - run: sleep 2 && curl -f http://localhost:8080
       - run: docker compose run --rm check
