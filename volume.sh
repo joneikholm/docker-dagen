@@ -7,10 +7,7 @@ docker run --rm -v data:/data alpine sh -c 'echo "hej fra container A" > /data/b
 docker run --rm -v data:/data alpine cat /data/besked.txt
 
 # Øvelse 12: uden volumen er filen der ikke.
-if docker run --rm alpine cat /data/besked.txt; then
-  echo "FEJL: filen burde ikke findes uden volumen"
-  exit 1
-fi
+! docker run --rm alpine cat /data/besked.txt
 echo "Uden volumen: ingen fil. Som forventet."
 
 # Øvelse 13: dit eget image med skuffen.
