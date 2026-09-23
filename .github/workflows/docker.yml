@@ -9,10 +9,10 @@ jobs:
       # Øvelse 1
       - run: docker run hello-world
 
-      # Øvelse 2-6
+      # Øvelse 2-7
       - run: bash container.sh && bash container.sh
 
-      # Øvelse 7-9
+      # Øvelse 8-10
       - run: docker build -t minside .
       - run: docker run -d --name site -p 8080:8000 minside
       - run: sleep 2 && curl -f http://localhost:8080
@@ -21,13 +21,13 @@ jobs:
       - run: sleep 2 && curl -f http://localhost:9090
       - run: docker rm -f site2
 
-      # Øvelse 10
+      # Øvelse 11
       - run: bash image.sh && bash image.sh
 
-      # Øvelse 11-13
+      # Øvelse 12-14
       - run: bash volume.sh
 
-      # Øvelse 14-16
+      # Øvelse 15-17
       - run: docker compose up -d --build web
       - run: sleep 2 && curl -f http://localhost:8080
       - run: docker compose run --rm check
