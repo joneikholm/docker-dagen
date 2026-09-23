@@ -1,0 +1,25 @@
+name: docker
+on: push
+jobs:
+  docker:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # Øvelse 1
+      - run: bash container.sh
+
+      # Øvelse 2
+      - run: docker build -t minside .
+      - run: docker run -d --name site -p 8080:8000 minside
+      - run: sleep 2 && curl -f http://localhost:8080
+      - run: docker rm -f site
+
+      # Øvelse 3
+      - run: bash volume.sh
+
+      # Øvelse 4
+      - run: docker compose up -d --build web
+      - run: docker compose run --rm check
+      - run: curl -f http://localhost:8080
+      - run: docker compose down -v

@@ -1,0 +1,15 @@
+services:
+  web:
+    build: .
+    ports:
+      - "8080:8000"
+    volumes:
+      - data:/app/data
+  check:
+    image: curlimages/curl
+    command: curl -sf --retry 5 --retry-connrefused http://web:8000
+    depends_on:
+      - web
+
+volumes:
+  data:
